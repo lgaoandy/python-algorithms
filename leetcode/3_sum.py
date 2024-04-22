@@ -43,7 +43,6 @@ def three_sum(nums: list[int]) -> list[list[int]]:
         
         left = i + 1 # start on leftmost next of i
         right = n - 1 # start on rightmost end
-        print(left, right)
 
         while left < right:
             total = nums[i] + nums[left] + nums[right]
