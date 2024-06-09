@@ -1,6 +1,6 @@
 import math
 
-def intToRoman(num: int) -> str:
+def int_to_roman(num: int) -> str:
     romans = ""
     symbols = {
         "M": 1000,
@@ -26,5 +26,5 @@ def intToRoman(num: int) -> str:
         
 
 if __name__ == "__main__":
-    print(intToRoman(58))
-    print(intToRoman(244))
+    print(int_to_roman(58))
+    print(int_to_roman(244))
