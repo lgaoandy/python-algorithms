@@ -1,4 +1,3 @@
-# Self solution
 class Solution:
     def merge_alternately(self, word1: str, word2: str) -> str:
         # find the longest length between 2 words
@@ -15,7 +14,7 @@ class Solution:
                 result += word2[i]
         return result
     
-    # weakness identified using PHIND
+    # Weaknesses from PHIND
     # 1) redundant checks - checking len(word1) and len(word2) in every iteration is unnecessary since these lengths don't change
     # 2) string concatenation - list + join() is faster than string concatenation
     def merge_alternately_optimized(self, word1: str, word2: str) -> str:
@@ -38,3 +37,8 @@ if __name__ == "__main__":
     solution = Solution()
     print(solution.merge_alternately("ab", "cdefg"))
     print(solution.merge_alternately_optimized("ab", "cdefg"))
+
+# What I learned
+# - when two pointers are involved in a loop, use the min loop to simplify the problem
+# - .join() method is more resource efficient than string concatenation
+# - difference between .extend() and .append() methods are that .extend() adds multiple elements from iterables while .append adds as single item
