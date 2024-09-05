@@ -23,11 +23,12 @@ class Solution():
                     divisor = divisor[:-1]
                     continue
             return divisor
-    
-    # Weaknesses from PHIND
-    # 1) inefficient loop - time complexity of O(n^2)
-    # 2) repetition in loop body
-    # 3) solution doesn't take advantage of string properties
+    '''
+    Weaknesses from PHIND
+    1) inefficient loop - time complexity of O(n^2)
+    2) repetition in loop body
+    3) solution doesn't take advantage of string properties
+    '''
     def gcd_of_strings_optimized(self, str1: str, str2: str) -> str:
         # define l, s as lengths
         # define l, str1 being larger than s, str2 if applicable
