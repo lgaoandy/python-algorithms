@@ -15,9 +15,9 @@ class Solution:
         return result
     
     '''
-    Weaknesses from PHIND
-    1) redundant checks - checking len(word1) and len(word2) in every iteration is unnecessary since these lengths don't change
-    2) string concatenation - list + join() is faster than string concatenation
+        Weaknesses from PHIND
+        1) redundant checks - checking len(word1) and len(word2) in every iteration is unnecessary since these lengths don't change
+        2) string concatenation - list + join() is faster than string concatenation
     '''
     def merge_alternately_optimized(self, word1: str, word2: str) -> str:
         result = []

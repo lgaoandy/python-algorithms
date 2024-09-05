@@ -35,10 +35,10 @@ class Solution:
         return flowers >= n
     
     '''
-    Weaknesses from PHIND
-    1) logic of handling different cases can be simplified
-    2) variable names could be more descriptive
-    3) solution uses a new variable to track flowers rather than using n
+        Weaknesses from PHIND
+        1) logic of handling different cases can be simplified
+        2) variable names could be more descriptive
+        3) solution uses a new variable to track flowers rather than using n
     '''
     def can_place_flowers_optimized(self, flowerbed: list[int], n: int) -> bool:
         # copy flowerbed to prevent function from being impure
