@@ -84,13 +84,13 @@ def print_lyric_analysis(filename):
             print("Everything else:", ", ".join(ranking["words"]), "appears", ranking["count"], "times.")
         else:
             print("The words", ", ".join(ranking["words"]), "appears", ranking["count"], "times.")
-
+    print("\n")
     # (words, best) = most_common_word(lyrics_to_frequencies(wordlist))
     
 
 
 
-print_lyric_analysis("skater-boi")
-print_lyric_analysis("safe-and-sound")
-print_lyric_analysis("super-villain")
+print_lyric_analysis("projects/lyrics_analyzer/skater-boi")
+print_lyric_analysis("projects/lyrics_analyzer/safe-and-sound")
+print_lyric_analysis("projects/lyrics_analyzer/super-villain")
 

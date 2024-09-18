@@ -73,7 +73,7 @@ def rock_paper_scissors():
     if computer_score == player_score:
         print(
             f"You and computer tied with {player_score} points. Try an odd number of rounds next time.")
-    elif computer_score > player_score:
+    elif computer_score < player_score:
         print(
             f"You win with {player_score} points versus {computer_score} from the computer!")
     else:
