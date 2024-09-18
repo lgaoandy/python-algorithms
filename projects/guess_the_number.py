@@ -23,7 +23,7 @@ def user_guess(x):
         elif guess == "hint":
             hint = not hint
             display_hint = "on" if hint == True else "off"
-            print(f"You have spent one guess to {display_hint} hints!")
+            print(f"You have spent one guess to turn {display_hint} hints!")
             continue
         else:
             print(f"Oops! You must enter a number.")
