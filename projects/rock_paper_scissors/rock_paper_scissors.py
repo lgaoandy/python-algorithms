@@ -94,4 +94,5 @@ def rock_paper_scissors():
             f"\n{Colors.RED}Unfortunately, you lost with {player_score} {score_unit}{Colors.END} versus {computer_score} from the computer...")
 
 
-rock_paper_scissors()
+if __name__ == "__main__":
+    rock_paper_scissors()

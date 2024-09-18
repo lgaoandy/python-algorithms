@@ -95,5 +95,5 @@ def guess_the_number():
     else:
         print(f"\n{Colors.YELLOW}You and me have tied with {user_attempts} attempts!{Colors.END}")
 
-
-guess_the_number()
+if __name__ == "__main__":
+    guess_the_number()

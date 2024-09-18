@@ -88,9 +88,8 @@ def print_lyric_analysis(filename):
     # (words, best) = most_common_word(lyrics_to_frequencies(wordlist))
     
 
-
-
-print_lyric_analysis("projects/lyrics_analyzer/skater-boi")
-print_lyric_analysis("projects/lyrics_analyzer/safe-and-sound")
-print_lyric_analysis("projects/lyrics_analyzer/super-villain")
+if __name__ == "__main__":
+    print_lyric_analysis("projects/lyrics_analyzer/skater-boi")
+    print_lyric_analysis("projects/lyrics_analyzer/safe-and-sound")
+    print_lyric_analysis("projects/lyrics_analyzer/super-villain")
 
