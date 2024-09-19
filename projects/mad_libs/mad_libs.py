@@ -96,9 +96,9 @@ class MadLib:
 
         for i in range(1, len(content)):
             print(content[i])
-            
+        print("\n")
 
 
 if __name__ == "__main__":
-    madlibs = MadLib()
-    madlibs.play("projects/mad_libs/mad_libs1.txt")
+    # MadLib().play("projects/mad_libs/mad_libs1.txt")
+    MadLib().play("projects/mad_libs/mad_libs2.txt")
