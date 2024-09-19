@@ -17,8 +17,8 @@ Mad Libs is a terminal program written in Python that intakes a mad lib file, pr
 
 ## Upload Custom Mad Libs
 
-- Add a new file in ![#c5f015](mad_libs) directory
-- Edit <span style="color: green">mad_libs.py</span> to run our text file or replace <span style="color: green">mad_libs1.txt</span>
+- Add a new file in mad_libs directory
+- Edit mad_libs.py to run our text file or replace mad_libs1.txt
 
 ## Basic Syntax
 
@@ -27,8 +27,8 @@ Mad Libs is a terminal program written in Python that intakes a mad lib file, pr
 - Any user prompts must be covered in <> brackets (e.g. \<noun\> or \<adjective\>)
 - Program will ask:
 
-```diff
-+ Enter a noun:
+```
+    Enter a noun:
 ```
 
 ## Reoccuring Words
@@ -47,11 +47,11 @@ Mad Libs is a terminal program written in Python that intakes a mad lib file, pr
 
 - Running the program:
 
-```diff
-+ Enter a food: sushi
-+ Enter an adverb: quickly
-+ Enter an adjective: delicious
-+ Enter a drink: cola
+```
+    Enter a food: sushi
+    Enter an adverb: quickly
+    Enter an adjective: delicious
+    Enter a drink: cola
 ```
 
 - Program reads completed mad libs:
