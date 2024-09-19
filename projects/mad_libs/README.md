@@ -4,7 +4,7 @@ Mad Libs is a terminal program written in Python that intakes a mad lib file, pr
 
 ## How To Use
 
-```python
+```powershell
     # Install project
     git clone https://github.com/lgaoandy/python-algorithms.git
 
@@ -17,19 +17,25 @@ Mad Libs is a terminal program written in Python that intakes a mad lib file, pr
 
 ## Upload Custom Mad Libs
 
-- Add a new file in mad_libs directory
-- Edit mad_libs.py to run our text file or replace "mad_libs1.txt"
+- Add a new file in <span style="color: green">mad_libs</span> directory
+- Edit <span style="color: green">mad_libs.py</span> to run our text file or replace <span style="color: green">mad_libs1.txt</span>
+
+## Basic Syntax
 
 - Mad libs must be in a text file
 - First line will be treated as title and printed in color
 - Any user prompts must be covered in <> brackets (e.g. \<noun\> or \<adjective\>)
-- The program will ask "Enter a noun: " or "Enter an adjective: "
+- Program will ask:
+
+```
+    Enter a noun:
+```
 
 ## Reoccuring Words
 
 - Assign a number next to the prompt type (e.g. \<noun1\>)
-- User will be prompt, following basic rules (e.g. "Enter a noun: ") but only for the first occurring \<noun1\>
-- All occurrencies of \<noun1\> will use the same prompt
+- Program will prompt following basic rules (e.g. "Enter a noun: ") but only for the first occurring \<noun1\>
+- All occurrencies of \<noun1\> will use the same input
 
 ## Example
 
