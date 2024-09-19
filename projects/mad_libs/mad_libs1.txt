@@ -1,18 +1,20 @@
 Mad Lib: Egyptian Adventure
 
-Once upon a time, in the <adjective> land of Egypt, a young pharaoh named <name> was determined to <verb> the <adjective> pyramids. 
-<pronoun> was known for their <adjective> <body part> and their love for <liquid>.
+Once upon a time, in the <adjective> land of Egypt, a young pharaoh named <character name1> was determined to <verb> the <adjective> pyramids. 
+The pharaoh was known for <possessive pronoun1> <adjective> <body part> and love for <liquid>.
 
 Inside the pyramid, the pharaoh found a <adjective> <noun> and a <adjective> <noun1>. 
-The <noun1> was a portal to another dimension, where ancient gods <verb in past tense>. 
+The <noun1> was a portal to another dimension, where ancient gods <verb in past tense> in <type of mood>. 
 The pharaoh <adverb> stepped through the portal.
 
-In this new world, the pharaoh met a <adjective> <noun> named Ra. 
-Together, they went on a quest to find the <noun> of <noun>. 
-They faced many challenges, like battling <adjective> <noun> with their <weapon> and crossing the <adjective> <noun>.
+In this new world, the pharaoh met a <adjective> <noun2> named <name of famous character2>. 
+Together, they went on a quest to find the <noun3> of <plural noun1>. 
+They faced many challenges, like battling <adjective> <plural noun> with their <weapon in plural> and crossing the <adjective> <noun>.
 
-Finally, after many adventures, they reached the <adjective> <building>. 
-It was a <adjective> <noun>, filled with <noun> and <noun>. 
+Finally, after many adventures, they reached the <adjective> <type of building>. 
+There was a <adjective> <type of container>, filled with <plural noun> and <plural noun>. 
+Buried inside, they found the <noun3> of <plural noun1>.
 The pharaoh used the <noun1> to return home, where they were greeted as a <noun>.
 
-From that day on, the pharaoh lived <adverb> ever after, telling tales of their <adjective> adventure to all who would listen.
+From that day on, <character name1> the pharaoh lived <adverb> ever after with <possessive pronoun1> <adjective> <noun2>, <name of famous character2>.
+Telling tales of their <adjective> adventure to all who would listen.
