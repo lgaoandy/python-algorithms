@@ -4,7 +4,7 @@ Mad Libs is a terminal program written in Python that intakes a mad lib file, pr
 
 ## How To Use
 
-```powershell
+```t
     # Install project
     git clone https://github.com/lgaoandy/python-algorithms.git
 
@@ -25,11 +25,6 @@ Mad Libs is a terminal program written in Python that intakes a mad lib file, pr
 - Mad libs must be in a text file
 - First line will be treated as title and printed in color
 - Any user prompts must be covered in <> brackets (e.g. \<noun\> or \<adjective\>)
-- Program will ask:
-
-```
-    Enter a noun:
-```
 
 ## Reoccuring Words
 
