@@ -1,32 +1,39 @@
 # Mad Libs
 
-A terminal program that intakes a file, prompts user to fill mad libs, writes the final story for you
+Mad Libs is a terminal program written in Python that intakes a mad lib file, prompts user to fill words, writes the final story
 
-## How to use
+## How To Use
 
-- Run on downloaded file directly (mad_libs.py) or import class
-- Use the .play() method
+```python
+    # Install project
+    git clone https://github.com/lgaoandy/python-algorithms.git
 
+    # Move to mad libs directory
+    cd projects/mad_libs
+
+    # Run mad_libs.py or import it as a class
+    python mad_libs.py
 ```
-    MadLib().play("mad_libs2.txt")
-```
 
-## Mad Libs Basics
+## Upload Custom Mad Libs
+
+- Add a new file in mad_libs directory
+- Edit mad_libs.py to run our text file or replace "mad_libs1.txt"
 
 - Mad libs must be in a text file
 - First line will be treated as title and printed in color
 - Any user prompts must be covered in <> brackets (e.g. \<noun\> or \<adjective\>)
 - The program will ask "Enter a noun: " or "Enter an adjective: "
 
-## Reoccuring words
+## Reoccuring Words
 
 - Assign a number next to the prompt type (e.g. \<noun1\>)
 - User will be prompt, following basic rules (e.g. "Enter a noun: ") but only for the first occurring \<noun1\>
 - All occurrencies of \<noun1\> will use the same prompt
 
-#### Example
+## Example
 
-- In mad lib text file:
+- In text file:
 
 ```
     Sally was craving for <food1>, so she <adverb> ordered <adjective> <food1> and <drink>.

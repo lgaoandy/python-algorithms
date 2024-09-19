@@ -1,6 +1,3 @@
-import typing
-import string
-
 class Colors:
     GREEN = '\033[92m'
     YELLOW = '\033[93m'
@@ -100,5 +97,5 @@ class MadLib:
 
 
 if __name__ == "__main__":
-    # MadLib().play("projects/mad_libs/mad_libs1.txt")
-    MadLib().play("projects/mad_libs/mad_libs2.txt")
+    MadLib().play("mad_libs1.txt")
+    # MadLib().play("mad_libs2.txt")
