@@ -48,7 +48,7 @@ class Solution:
         analysis
         - 
     '''
-    def func(self, head: None) -> None:
+    def func(self, head: Optional[ListNode]) -> Optional[ListNode]:
         pass
     
 
