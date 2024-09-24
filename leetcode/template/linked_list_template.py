@@ -55,5 +55,6 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
     node1 = s.create_linked_list([])
+    print(node1)
     print(s.func(node1))
 
