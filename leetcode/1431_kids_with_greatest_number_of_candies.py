@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     def kids_with_candies(self, candies: list[int], extraCandies: int) -> list[bool]:
         # get greatest candy
         greatest = max(candies)

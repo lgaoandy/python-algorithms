@@ -1,6 +1,6 @@
 from collections import Counter
 
-class Solution():
+class Solution:
     '''
         pseudo-code
         - use a hashmap to keep track of different values and their occurrences

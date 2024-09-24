@@ -1,6 +1,6 @@
 from collections import Counter
 
-class Solution():
+class Solution:
     '''
         understanding the problem
         - on initial look, problem may seem complicated as operation 1 & 2 can be done in any order and any number of times

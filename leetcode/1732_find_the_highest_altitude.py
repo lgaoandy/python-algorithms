@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         pseudo-code
         - loop through list, adding each change in altitude, storing max

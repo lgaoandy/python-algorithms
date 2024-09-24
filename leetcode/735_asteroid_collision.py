@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         pseudo-code
         - use a stack to store the result of the asteroids

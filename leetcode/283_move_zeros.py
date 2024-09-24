@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         Pseudo code
         1) setup a zero pointer and num pointer

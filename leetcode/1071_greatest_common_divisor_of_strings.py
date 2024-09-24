@@ -1,6 +1,6 @@
 import math
 
-class Solution():
+class Solution:
     def gcd_of_strings(self, str1: str, str2: str) -> str:
         # find the shorter string
         divisor = min(str1, str2, key=len)

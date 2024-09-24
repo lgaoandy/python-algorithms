@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         Pseudo code
         1) convert str into array

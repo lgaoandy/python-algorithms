@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         pseudo-code
         - first pass, calculate left_sum: 

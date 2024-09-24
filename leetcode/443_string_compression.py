@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         Brute Force (pseudo code)
         - setup object

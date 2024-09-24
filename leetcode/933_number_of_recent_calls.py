@@ -2,7 +2,7 @@
     pseudo-code:
     - queues are first-in first-out examples
 '''
-class RecentCounter():
+class RecentCounter:
     def __init__(self):
         self.requests = []
 
