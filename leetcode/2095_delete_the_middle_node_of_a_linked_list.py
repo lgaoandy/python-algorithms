@@ -5,6 +5,7 @@ class ListNode:
         self.val = val
         self.next = next
 
+
     def __str__(self):
         values = []
         node = self
@@ -33,6 +34,7 @@ class Solution:
             prev = current
         return head
 
+
     '''
         potential questions to ask interviewer
         - what happens when a linked list of length 1 is inputted?
@@ -44,6 +46,10 @@ class Solution:
         - iterate through linked list until the end to get length n
         - find the index of the middle node [n/2]
         - iterate through linked list, change the parent node pointer to the child
+
+        analysis
+        - time complexity: O(n)
+        - space complexity: O(1)
     '''
     def delete_middle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         # handles the single node case
