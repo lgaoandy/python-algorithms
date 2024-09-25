@@ -12,7 +12,7 @@ class ListNode:
         while node:
             values.append(str(node.val))
             node = node.next
-        return " > ".join(values) + "\n"
+        return "\n" + " > ".join(values)
 
 
 class Solution:
