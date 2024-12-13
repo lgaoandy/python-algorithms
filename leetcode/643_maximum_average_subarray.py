@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         pseudo-code:
         - sliding window technique over nums

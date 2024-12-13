@@ -1,6 +1,6 @@
 import string
 
-class Solution():
+class Solution:
     '''
         pseudo-code
         - using a stack, loop through str

@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         pseudo-code:
         - make 2 pointers and max_area

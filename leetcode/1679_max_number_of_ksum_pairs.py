@@ -1,6 +1,6 @@
 from collections import Counter
 
-class Solution():
+class Solution:
     '''
         pseudo-code:
         - loop through array, make a hash map for different values

@@ -1,6 +1,6 @@
 from collections import Counter
 
-class Solution():
+class Solution:
     '''
         pseudo-code
         - brute force method 

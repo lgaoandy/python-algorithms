@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         Pseudo-code
         - use 2 pointers, one in s, one in t

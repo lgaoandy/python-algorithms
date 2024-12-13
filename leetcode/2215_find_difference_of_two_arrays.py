@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         pseudo-code based on PHIND approach hints
         - convert input arrays into sets for efficient lookup & comparison

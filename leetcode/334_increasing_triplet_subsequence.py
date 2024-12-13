@@ -1,4 +1,4 @@
-class Solution():
+class Solution:
     '''
         Pseudo-code
         - setup 3 variables, min, mid, start
