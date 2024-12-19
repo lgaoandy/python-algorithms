@@ -27,5 +27,4 @@ if __name__ == "__main__":
 
     # build solution
     s = Solution()
-    print(s.sum_power_of_two(3))
 

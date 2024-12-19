@@ -30,22 +30,31 @@ class TreeNode:
         self.val = nums.pop(0)
 
         if len(nums) > 0:
-            nodes_in_depth = 1
+            depth = 1
+            nodes_of_depth = self._sum_powers_of_two(depth)
             left, right = [], []
             while len(nums) > 0:
-                if len(left) < nodes_in_depth:
+                if len(left) < nodes_of_depth:
                     left.append(nums.pop(0))
-                elif len(right) < nodes_in_depth:
+                elif len(right) < nodes_of_depth:
                     right.append(nums.pop(0))
                 else:
-                    nodes_in_depth += nodes_in_depth * 2
+                    depth += 1
+                    nodes_of_depth = self._sum_powers_of_two(depth)
 
-            if len(left) > 0:
+            if len(left) > 0 and left[0] != None:
                 self.left = TreeNode()
                 self.left.build(left)
-            if len(right) > 0:
+            if len(right) > 0 and right[0] != None:
                 self.right = TreeNode()
                 self.right.build(right)
+
+
+    def _sum_powers_of_two(self, n: int) -> int:
+        value = 0
+        for i in range(n):
+            value += pow(2, i)
+        return value
 
             
     def _display_aux(self):
