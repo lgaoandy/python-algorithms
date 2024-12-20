@@ -32,10 +32,6 @@ class Solution:
         return _count_nodes(root, root.val)
 
     
-    
-
-        
-
 if __name__ == "__main__":
     s = Solution()
 
