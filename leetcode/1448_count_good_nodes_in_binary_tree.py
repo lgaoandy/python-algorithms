@@ -11,12 +11,30 @@ class Solution:
         - traverse binary tree, maintaining a max value, if max value does not exceed current node value, it is a good node
 
         analysis
-        - 
+        - time complexity (n) because we are checking every node
     '''
     def good_nodes(self, root: TreeNode) -> int:
-        pass
+        def _count_nodes(root: Optional[TreeNode], maximum: int) -> int:
+            # if not a treenode, return 0
+            if not root:
+                return 0
+            
+            # check if current node is a good node
+            count = 1 if root.val >= maximum else 0
+
+            # update the maximum
+            maximum = max(maximum, root.val)
+
+            # sum all of the other nodes
+            return count + _count_nodes(root.left, maximum) + _count_nodes(root.right, maximum)
+        
+        # use recursive function to solve
+        return _count_nodes(root, root.val)
 
     
+    
+
+        
 
 if __name__ == "__main__":
     s = Solution()
