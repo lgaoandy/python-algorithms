@@ -4,19 +4,18 @@ from datatypes.binary_tree import TreeNode
 class Solution:
     '''
         constriants:
-        - 
-
-        potential questions to ask interviewer
-        - 
+        - number of nodes: [1, 10^5]
+        - value of nodes: [-10^4, 10^4]
 
         pseudo-code
-        - 
+        - traverse binary tree, maintaining a max value, if max value does not exceed current node value, it is a good node
 
         analysis
         - 
     '''
-    def func(self, root: TreeNode) -> int:
+    def good_nodes(self, root: TreeNode) -> int:
         pass
+
     
 
 if __name__ == "__main__":
@@ -27,8 +26,8 @@ if __name__ == "__main__":
 
     tree1.build([3,1,4,3,None,1,5])
     tree1.display()
-    print(s.func(tree1))
+    print(s.good_nodes(tree1))
 
     tree2.build([3,3,None,4,2])
     tree2.display()
-    print(s.func(tree2))
+    print(s.good_nodes(tree2))
