@@ -22,8 +22,6 @@ class Solution:
     def path_sum(self, root: Optional[TreeNode], target_sum: int) -> int:
         # define recursively function to traverse every path and find sums along its paths
         def count_sum(node: Optional[TreeNode], nums: list[int]) -> int:
-
-            # base case
             if not node:
                 return 0
             
@@ -43,6 +41,25 @@ class Solution:
             return count
         return count_sum(root, [])
     
+    
+    def path_sum_optimized(self, root: Optional[TreeNode], target_sum: int) -> int:
+        if not root:
+            return 0
+        
+        prefix_sums = {0: 1}
+
+        def dfs(node: Optional[TreeNode], current_sum: int) -> int:
+            if not node:
+                return 0
+
+            current_sum += node.val
+            count = prefix_sums.get(current_sum - target_sum, 0)
+            prefix_sums[current_sum] = prefix_sums.get(current_sum, 0) + 1
+            return count + dfs(node.left, current_sum) + dfs(node.right, current_sum)
+        
+        count = dfs(root, 0)    
+        print(prefix_sums)
+        return count
 
 if __name__ == "__main__":
     s = Solution()
@@ -52,7 +69,7 @@ if __name__ == "__main__":
 
     tree1.build([10,5,-3,3,2,None,11,3,-2,None,1])
     tree1.display()
-    print(s.path_sum(tree1, 8))
+    print(s.path_sum_optimized(tree1, 8))
 
     tree2.build([5,4,8,11,None,13,4,7,2,None,None,None,None,5,1])
     tree2.display()
