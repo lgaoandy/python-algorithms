@@ -10,14 +10,15 @@ class Solution:
         - p != q
         - p and q will exist in the tree
 
-        potential questions to ask interviewer
+        potential questions to ask interviewer:
         - to clarify, the LCA of two nodes can be one of the nodes itself?
 
-        pseudo-code
+        pseudo-code:
         - use DFS recursion to traverse tree until p and q values are found
         - returning a queue of values, in which we compare, using LIFA to find the LCM
 
-        analysis
+        analysis:
+        (runtime ~ 1150ms)
         - time complexity: O(n), however, it is 2 DFS, and a lot in between steps
         - average complexity is a lot higher than just n
     '''
@@ -73,12 +74,16 @@ class Solution:
 
 
     '''
-        solution:
+        analysis:
+        (runtime ~ 52ms)
         - time complexity: O(n)
-        - average time complexity is less n
+        - average time complexity can be much less than n
+
+        approach:
         - takes full advantage of the assumption that p, q always exists in the tree and so there will always be an answer
         - in this approach, as soon as one of values (p or q) is found, it is returned
         - when a deep node is matched, it is taken back to traverse through the parent until a parent node is found
+        - effectively, this eliminates the need to review every node in the tree, but only searching through necessary nodes
     '''
     def lowest_common_ancestor_optimized(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
         if not root or root.val == p.val or root.val == q.val:
