@@ -1,3 +1,5 @@
+from collections import deque
+
 class TreeNode:
     def __init__(self, val=None, left=None, right=None):
         self.val = val
@@ -27,6 +29,7 @@ class TreeNode:
 
     
     def build(self, nums: list[int]):
+        # set first element as current node value
         self.val = nums.pop(0)
 
         if len(nums) > 0:
@@ -102,3 +105,31 @@ class TreeNode:
         lines = [first_line, second_line] + [a + u * ' ' + b for a, b in zipped_lines]
         return lines, n + m + u, max(p, q) + 2, n + u // 2
 
+
+def construct_tree(nodes):
+    if not nodes or nodes[0] is None:
+        return None
+
+    root = TreeNode(nodes[0])
+    queue = deque([root])
+    
+    i = 1
+    while i < len(nodes):
+        node = queue.popleft()
+        
+        if nodes[i]:
+            node.left = TreeNode(nodes[i])
+            queue.append(node.left)
+        
+        i += 1
+        
+        if i >= len(nodes):
+            break
+        
+        if nodes[i]:
+            node.right = TreeNode(nodes[i])
+            queue.append(node.right)
+        
+        i += 1
+    
+    return root
