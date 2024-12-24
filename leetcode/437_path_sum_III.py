@@ -1,5 +1,5 @@
 from typing import Optional
-from datatypes.binary_tree import TreeNode
+from datatypes.binary_tree import TreeNode, construct_tree
 
 class Solution:
     '''
@@ -65,16 +65,14 @@ if __name__ == "__main__":
     s = Solution()
 
     # build binary tree
-    tree1, tree2, tree3 = TreeNode(), TreeNode(), TreeNode()
-
-    tree1.build([10,5,-3,3,2,None,11,3,-2,None,1])
+    tree1 = construct_tree([10,5,-3,3,2,None,11,3,-2,None,1])
     tree1.display()
     print(s.path_sum_optimized(tree1, 8))
 
-    tree2.build([5,4,8,11,None,13,4,7,2,None,None,None,None,5,1])
+    tree2 = construct_tree([5,4,8,11,None,13,4,7,2,None,None,5,1])
     tree2.display()
     print(s.path_sum(tree2, 2))
 
-    tree3.build([1, -2, -3])
+    tree3 = construct_tree([1, -2, -3])
     tree3.display()
     print(s.path_sum(tree3, -2))
