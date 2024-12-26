@@ -1,6 +1,15 @@
 class Solution:
     '''
+        constriants:
+        - 
+
+        potential questions to ask interviewer
+        - 
+
         pseudo-code
+        - 
+
+        analysis
         - 
     '''
     def function(self) -> None:
