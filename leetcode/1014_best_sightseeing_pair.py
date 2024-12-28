@@ -9,7 +9,8 @@ class Solution:
         - keep track of the score of the max pair by each index
 
         analysis
-        - 
+        - time complexity: O(n)
+        - space complexity: 1
     '''
     def sight_seeing_pair(self, values: list[int]) -> int:
         res = 0
@@ -19,6 +20,7 @@ class Solution:
             res = max(res, values[i] + cur_max)
             cur_max = max(cur_max, values[i])
         return res
+
 
 if __name__ == "__main__":
     s = Solution()
