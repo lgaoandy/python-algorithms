@@ -10,7 +10,7 @@ class Solution:
 
         analysis
         - time complexity: O(n)
-        - space complexity: 1
+        - space complexity: O(1)
     '''
     def sight_seeing_pair(self, values: list[int]) -> int:
         res = 0
