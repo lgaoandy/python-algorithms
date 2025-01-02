@@ -16,5 +16,5 @@ class Solution:
         pass
 
 if __name__ == "__main__":
-    test = Solution()
-    print(test)
+    s = Solution()
+    print(s)
