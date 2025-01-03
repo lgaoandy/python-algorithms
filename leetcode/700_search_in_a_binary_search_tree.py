@@ -14,7 +14,8 @@ class Solution:
         - traverse the node, evaluating current node with target value, go left if smaller than current value, else go right
 
         analysis
-        - 
+        - time complexity: O(logn)
+        - space complexity: O(1)
     '''
     def search_bst(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if not root:
