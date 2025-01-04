@@ -11,7 +11,8 @@ class Solution:
         - loop through string, adding to left score and subtracting right and compare
 
         analysis
-        - 
+        - time complexity: O(n)
+        - space complexity: O(1)
     '''
     def maxScore(self, s: str) -> int:
         left = 0

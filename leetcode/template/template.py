@@ -3,7 +3,7 @@ class Solution:
         constriants:
         - 
 
-        potential questions to ask interviewer
+        comments/questions for interviewer
         - 
 
         pseudo-code
