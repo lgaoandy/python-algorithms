@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class Solution:
     '''
         constriants:
@@ -14,7 +16,9 @@ class Solution:
         - because restriction #2, there can never be a loop
 
         analysis
-        - 
+        - time complexity: O(an)
+        - space complexity: O(bn)
+        - requires to make adjacency list, then dfs, then count, seems inefficient
     '''
     def minReorder(self, n: int, connections: list[list[int]]) -> int:
         adjacency = { i:[] for i in range(n) }
@@ -26,29 +30,48 @@ class Solution:
             adjacency[j].append(i)
 
         # Define routes as the correct direction of each path
-        routes = []
+        count = 0
         visited = set()
         def dfs(city):
+            nonlocal count
             if city in visited:
                 return False
             
             visited.add(city)
             for neighbouring_city in adjacency[city]:
                 if dfs(neighbouring_city):
-                    routes.append([neighbouring_city, city])
+                    if [neighbouring_city, city] not in connections:
+                        count += 1
             return True
+        
+        # Start from city 0
         dfs(0)
+        return count
 
-        # compare routes with connections
-        redirects = 0
-        for i in connections:
-            if i not in routes:
-                redirects += 1  
-        return redirects
+
+    def minReorder_optimize(self, n: int, connections: list[list[int]]) -> int:
+        self.res = 0
+        roads = set()
+        graph = defaultdict(list)
+        
+        for u, v in connections:
+            roads.add((u, v))
+            graph[v].append(u)
+            graph[u].append(v)
+        
+        def dfs(u, parent):
+            self.res += (parent, u) in roads
+            for v in graph[u]:
+                if v == parent:
+                    continue
+                dfs(v, u)
+        dfs(0, -1)
+        print(roads, graph)
+        return self.res
 
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.minReorder(6, [[0,1],[1,3],[2,3],[4,0],[4,5]]))
-    print(s.minReorder(5, [[1,0],[1,2],[3,2],[3,4]]))
-    print(s.minReorder(3, [[1,0],[2,0]]))
+    print(s.minReorder_optimize(6, [[0,1],[1,3],[2,3],[4,0],[4,5]]))
+    print(s.minReorder_optimize(5, [[1,0],[1,2],[3,2],[3,4]]))
+    print(s.minReorder_optimize(3, [[1,0],[2,0]]))
