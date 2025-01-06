@@ -40,7 +40,7 @@ class Solution:
     
     
     '''
-        comments
+        improvements
         - utilizes .find(), and rfind() to get ocurrences
         - utilizes set to find unique letters for counting subsequences
         - time complexity: O(1)
