@@ -27,7 +27,7 @@ class Solution:
                     if words[j] in words[i]:
                         results.add(words[j])
         return list(results)
-    
+
 
     '''
         optimization
