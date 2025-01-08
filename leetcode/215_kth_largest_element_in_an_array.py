@@ -1,3 +1,5 @@
+import heapq
+
 class Solution:
     '''
         constriants:
@@ -13,7 +15,7 @@ class Solution:
         - time complexity: O(nlogn)
     '''
     def findKthLargest(self, nums: list[int], k: int) -> int:
-        nums = sorted(nums)
+        nums.sort()
         return nums[len(nums) - k]
 
 
@@ -41,7 +43,22 @@ class Solution:
         return quickSelect(0, len(nums) - 1)
 
 
+    def findKthLargestMinHeap(self, nums: list[int], k: int) -> int:
+        n = len(nums)
+
+        # create a heap using the current nums
+        heapq.heapify(nums)
+
+        # in a min heap, nums are ordered from smallest to largest
+        # we want to pop n - k times to reach the highest kth value
+        for i in range(n - k):
+            heapq.heappop(nums)
+        
+        # the next value should be the kth value
+        return heapq.heappop(nums)
+
+
 if __name__ == "__main__":
     s = Solution()
-    print(s.findKthLargestQuickSelect([3,2,1,5,6,4], 2))
-    print(s.findKthLargestQuickSelect([3,2,3,1,2,4,5,5,6], 4))
+    print(s.findKthLargestMinHeap([3,2,1,5,6,4], 2))
+    # print(s.findKthLargest([3,2,3,1,2,4,5,5,6], 4))
