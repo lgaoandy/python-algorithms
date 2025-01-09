@@ -67,7 +67,33 @@ class Solution:
         return total_cost
 
 
+    '''
+        Optimization:
+        - uses two heaps
+        - uses pointers to track remaining hires if available, not mutating costs, saves time/space
+    '''
+    def totalCost2(self, costs: list[int], k: int, candidates: int) -> int:
+        q = costs[:candidates]
+        qq = costs[max(candidates, len(costs)-candidates):]
+        heapq.heapify(q)
+        heapq.heapify(qq)
+        ans = 0 
+        i, ii = candidates, len(costs)-candidates-1
+        for _ in range(k): 
+            if not qq or q and q[0] <= qq[0]: 
+                ans += heapq.heappop(q)
+                if i <= ii: 
+                    heapq.heappush(q, costs[i])
+                    i += 1
+            else: 
+                ans += heapq.heappop(qq)
+                if i <= ii: 
+                    heapq.heappush(qq, costs[ii])
+                    ii -= 1
+        return ans 
+
+
 if __name__ == "__main__":
     s = Solution()
-    print(s.totalCost([17,12,10,2,7,2,11,20,8],3,4))
-    print(s.totalCost([1,2,4,1],3,3))
+    print(s.totalCost2([17,12,10,2,7,2,11,20,8],3,4)) # 11
+    print(s.totalCost2([1,2,4,1],3,3)) # 4
