@@ -1,15 +1,15 @@
 class Solution:
     '''
-        constriants:
+        Constriants:
         - 
 
-        comments/questions for interviewer
+        Comments/questions for interviewer
         - 
 
-        pseudo-code
+        Pseudo-code
         - 
 
-        analysis
+        Analysis
         - 
     '''
     def function(self) -> None:
