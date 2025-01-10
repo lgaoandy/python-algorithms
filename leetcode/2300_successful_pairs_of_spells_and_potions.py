@@ -1,5 +1,5 @@
 from math import floor, ceil
-from heapq import heapify
+import bisect
 
 class Solution:
     '''
@@ -17,15 +17,14 @@ class Solution:
         - loop through spells, and return value
 
         Analysis
-        - 
+        - time complexity: O(nlogn)
+        - space complexity: O(n)
     '''
     def successfulPairs(self, spells: list[int], potions: list[int], success: int) -> list[int]:
         # populate requirements
         requirements = []
         for potion in potions:
             requirements.append(ceil(success/potion))
-        
-        # sort requirements
         requirements.sort()
         
         res = []
@@ -43,7 +42,7 @@ class Solution:
                     r = i
             res.append(l)
         return res
-    
+
 
 if __name__ == "__main__":
     s = Solution()
