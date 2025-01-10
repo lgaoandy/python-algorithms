@@ -50,6 +50,41 @@ class Solution:
                 res.append(word)
         return res
 
+
+    def countAos(self, aos):
+        charCount = {}
+        for string in aos:
+            tempCount = {}
+            for char in string:
+                if char not in tempCount:
+                    tempCount[char] = 0
+                tempCount[char] = tempCount[char] + 1
+           
+            for key, value in tempCount.items():
+                if key not in charCount:
+                    charCount[key] = 0
+                if charCount[key] < value:
+                    charCount[key] = value
+        return charCount
+ 
+
+    def wordSubstring(self, str1, charCount):
+        for key, value in charCount.items():
+            if (str1.count(key) < value):
+                return False
+        return True
+ 
+
+    def wordSubsetsEric(self, words1, words2):
+        aos = self.countAos(words2)
+        return filter(lambda value: self.wordSubstring(value, aos), words1)
+       
+        """
+        :type words1: List[str]
+        :type words2: List[str]
+        :rtype: List[str]
+        """
+
         
 if __name__ == "__main__":
     s = Solution()
