@@ -54,7 +54,6 @@ def n_queens_recursion(n: int) -> list[list[int]]:
 
     Time complexity: O(n!)
     Space complexity: O(n)
-
 '''
 def n_queen_pruning(n: int) -> list[list[int]]:
     result = []
