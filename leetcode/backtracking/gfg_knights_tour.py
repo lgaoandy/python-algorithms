@@ -2,7 +2,11 @@ import copy
 
 class Solution:
     '''
-
+        Recursive Brute Force Appraoch
+        - create a grid of size n
+        - start at (0,0) as 1, then check all possible knight movements
+        - recursively check all knight movement, backtracking when a movement is not possible
+        - if a solution reaches the end, copy to results
     '''
     def knights_tour(self, n):
         # make board
