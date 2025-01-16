@@ -2,9 +2,6 @@ class Solution:
     '''
         Pseudo-code
         - loop through values of a set from 1 to 9, adding values to a list, until it is impossible then backtrack
-
-        Analysis
-        - 
     '''
     def combinationSum3(self, k: int, n: int) -> list[list[int]]:
         result = []
