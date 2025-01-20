@@ -28,6 +28,8 @@ class Solution:
         - Define two pointers to hold index of the greatest value and the second greatest
         - Iterate through nums, populate the array and update pointers
         - Return the greater value between the last two values in the populated array
+        - Time complexity: O(n) - iterates through nums once
+        - Space complexity: O(n) - cash increases in size the same rate as nums, m1 & m2 - O(1)
     '''
     def house_rob(self, nums: list[int]) -> int:
         n = len(nums)
