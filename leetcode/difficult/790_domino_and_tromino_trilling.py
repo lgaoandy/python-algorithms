@@ -33,13 +33,14 @@ class Solution:
         - Iterate from 3 to n, calculating F(n) along the way
     '''
     def num_trilling(self, n: int) -> int:
+        MOD = 10 ** 9 + 7 # prime num fits within the range of common int types (prevent int overflow issues)
         f = [0,1,2] + [0] * (n-2)
         t = [0,0,1] + [0] * (n-2)
 
         for i in range(3, n+1):
             f[i] = f[i-1] + f[i-2] + 2 * t[i-1]
             t[i] = f[i-2] + t[i-1]
-        return f[n] % (10 ** 9 + 7)
+        return f[n] % MOD
 
 
 if __name__ == "__main__":

@@ -1,15 +1,9 @@
 class Solution:
     '''
-        Constriants:
-        - 
+        Intuition
+        -
 
-        Comments/questions for interviewer
-        - 
-
-        Pseudo-code
-        - 
-
-        Analysis
+        Approach
         - 
     '''
     def function(self) -> None:
