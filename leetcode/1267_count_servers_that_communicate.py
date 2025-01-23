@@ -1,10 +1,8 @@
 class Solution:
     '''
-        Intuition
-        -
-
         Approach
-        - 
+        - Time complexity: O(mn)
+        - Space complexity: O(m+n)
     '''
     def count_servers(self, grid: list[list[int]]) -> int:
         m, n = len(grid), len(grid[0])
