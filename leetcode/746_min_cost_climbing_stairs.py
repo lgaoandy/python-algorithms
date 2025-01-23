@@ -33,6 +33,7 @@ class Solution:
             min_cost.append(prev_min + cost[i])
         return min(min_cost[n-1], min_cost[n-2])
 
+
 if __name__ == "__main__":
     s = Solution()
     print(s.min_cost_climbing_stairs([10,15,20]))

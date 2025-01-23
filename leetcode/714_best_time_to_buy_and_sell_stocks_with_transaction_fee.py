@@ -26,14 +26,13 @@ class Solution:
     
 
     def max_profit(self, prices: list[int], fee: int) -> int:
-        pos = -prices[0]
-        profit = 0
+        buy = float('-inf')
+        sell = 0
 
-        for i in range(1, len(prices)):
-            print(pos, profit)
-            pos = max(pos, profit - prices[i])
-            profit = max(profit, pos + prices[i] - fee)
-        return profit
+        for price in prices:
+            buy = max(buy, sell - price)
+            sell = max(sell, buy + price - fee)
+        return sell
 
 
 if __name__ == "__main__":
