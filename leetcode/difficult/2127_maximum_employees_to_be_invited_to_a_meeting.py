@@ -1,3 +1,5 @@
+from collections import deque, defaultdict
+
 class Solution:
     def maximum_invitations_save_duos(self, favorite: list[int]) -> int:
         n = len(favorite)
@@ -42,13 +44,70 @@ class Solution:
         return max(max_loop, max_duos)
     
 
+    '''
+        Problems with previous approach
+        - Time inefficient - we can possibility check each connected node 
+    '''
+    def maximum_invitations(self, favorite: list[int]) -> int:
+        # Find the longest cycle
+        n = len(favorite)
+        longest_cycle = 0
+        visit = [False] * n
+        duos = []
+
+        for i in range(n):
+            if visit[i]:
+                continue
+                
+            start, cur = i, i
+            cur_set = set()
+            while not visit[cur]:
+                visit[cur] = True
+                cur_set.add(cur)
+                cur = favorite[cur]
+
+            if cur in cur_set:
+                length = len(cur_set)
+                while start != cur:
+                    length -= 1
+                    start = favorite[start]
+                longest_cycle = max(longest_cycle, length)
+
+                if length == 2:
+                    duos.append([cur, favorite[cur]])
+
+        # Find sum of longest non-closed circles
+        inverted = defaultdict(list)
+
+        for dst, src in enumerate(favorite):
+            inverted[src].append(dst)
+        
+        def bfs(src, parent):
+            q = deque([(src, 0)]) # node, length
+            max_length = 0
+
+            while q:
+                node, length = q.popleft()
+                if node == parent:
+                    continue
+                max_length = max(max_length, length)
+                for nei in inverted[node]:
+                    q.append((nei, length + 1))
+            return max_length
+        
+        chain_sum = 0
+        for n1, n2 in duos:
+            chain_sum += bfs(n1, n2) + bfs(n2, n1) + 2
+        return max(chain_sum, longest_cycle)
+
+
 if __name__ == "__main__":
     s = Solution()
     
-    # print(s.maximum_invitations([2,2,1,2])) # 3
-    # print(s.maximum_invitations([1,2,0])) # 3
-    # print(s.maximum_invitations([3,0,1,4,1])) # 4
-    # print(s.maximum_invitations([1,2,3,4,5,6,3,8,9,10,11,8])) # 4
-    # print(s.maximum_invitations([1,0,0,2,1,4,7,8,9,6,7,10,8])) # 6 - connected duo
-    # print(s.maximum_invitations([1,0,3,2,5,6,7,4,9,8,11,10,11,12,10])) # 11 - connected duo + isolated duos
+    print(s.maximum_invitations([2,2,1,2])) # 3
+    print(s.maximum_invitations([1,2,0])) # 3
+    print(s.maximum_invitations([3,0,1,4,1])) # 4
+    print(s.maximum_invitations([1,2,3,4,5,6,3,8,9,10,11,8])) # 4
+    print(s.maximum_invitations([1,0,0,2,1,4,7,8,9,6,7,10,8])) # 6 - connected duo
+    print(s.maximum_invitations([1,0,3,2,5,6,7,4,9,8,11,10,11,12,10])) # 11 - connected duo + isolated duos
     print(s.maximum_invitations([7,0,7,13,11,6,8,5,9,8,9,14,15,7,11,6])) # 11
