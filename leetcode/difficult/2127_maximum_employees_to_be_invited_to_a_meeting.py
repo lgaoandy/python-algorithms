@@ -1,15 +1,5 @@
 class Solution:
-    '''
-        Intuition
-        - Presumably a directed graph problem
-        - Iterate through favorite and create a directed graph
-        - We want to find the largest loop or circle
-        - Using a set, we can track which employee we checked already, where a loop is found, compare to the maximum
-
-        Directed Graph Approach
-        - 
-    '''
-    def maximum_invitations(self, favorite: list[int]) -> int:
+    def maximum_invitations_save_duos(self, favorite: list[int]) -> int:
         n = len(favorite)
         employees = { i for i in range(n)}
         employees_checked = set()
@@ -55,10 +45,10 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
     
-    print(s.maximum_invitations([2,2,1,2])) # 3
-    print(s.maximum_invitations([1,2,0])) # 3
-    print(s.maximum_invitations([3,0,1,4,1])) # 4
-    print(s.maximum_invitations([1,2,3,4,5,6,3,8,9,10,11,8])) # 4
-    print(s.maximum_invitations([1,0,0,2,1,4,7,8,9,6,7,10,8])) # 6 - connected duo
-    print(s.maximum_invitations([1,0,3,2,5,6,7,4,9,8,11,10,11,12,10])) # 11 - connected duo + isolated duos
+    # print(s.maximum_invitations([2,2,1,2])) # 3
+    # print(s.maximum_invitations([1,2,0])) # 3
+    # print(s.maximum_invitations([3,0,1,4,1])) # 4
+    # print(s.maximum_invitations([1,2,3,4,5,6,3,8,9,10,11,8])) # 4
+    # print(s.maximum_invitations([1,0,0,2,1,4,7,8,9,6,7,10,8])) # 6 - connected duo
+    # print(s.maximum_invitations([1,0,3,2,5,6,7,4,9,8,11,10,11,12,10])) # 11 - connected duo + isolated duos
     print(s.maximum_invitations([7,0,7,13,11,6,8,5,9,8,9,14,15,7,11,6])) # 11
