@@ -6,9 +6,6 @@ class Solution:
         - If there is any odd numbered cycles, return -1
         - Any even-numbered cycles requires n / 2 groups
         - Chains branching from a cycle does not necessarily add 1 group per chain unit, positions matter in this case
-
-        Approach
-        - 
     '''
     def magnificentSets(self, n: int, edges: list[list[int]]) -> int:
         adjacency = { i:set() for i in range(1, n+1) }
