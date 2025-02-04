@@ -27,7 +27,7 @@ class StockSpannerOptimized:
         if not self.stack:
             self.stack.append((price, 1))
             return 1
-        
+
         count = 1
         while self.stack and self.stack[-1][0] <= price:
             count += self.stack[-1][1]
@@ -38,7 +38,7 @@ class StockSpannerOptimized:
 
 
 if __name__ == "__main__":
-    s = StockSpanner()
+    s = StockSpannerOptimized()
     print(s.next(100))
     print(s.next(80))
     print(s.next(60))
