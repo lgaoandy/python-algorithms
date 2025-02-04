@@ -20,3 +20,8 @@ if __name__ == "__main__":
     k = s.removeDuplicates(nums1)
     print(k)
     print(nums1[0:k])
+
+    nums1 = [0,0]
+    k = s.removeDuplicates(nums1)
+    print(k)
+    print(nums1[0:k])
