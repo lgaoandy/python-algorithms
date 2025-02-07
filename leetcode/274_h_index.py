@@ -36,6 +36,6 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
     print(s.hIndexCounting([3,0,6,1,5]))
-    # print(s.hIndex([1,3,1]))
-    # print(s.hIndex([100]))
-    # print(s.hIndex([100, 200]))
+    print(s.hIndexCounting([1,3,1]))
+    # print(s.hIndexCounting([100]))
+    # print(s.hIndexCounting([100, 200]))
