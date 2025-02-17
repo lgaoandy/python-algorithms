@@ -1,7 +1,6 @@
 class Solution:
     def punishmentNumber(self, n: int) -> int:
         def partition(x, target):
-            print(x, target)
             if x == target: 
                 return True
             if x == 0: 
