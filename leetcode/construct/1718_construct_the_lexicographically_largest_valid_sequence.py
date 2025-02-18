@@ -59,3 +59,4 @@ if __name__ == "__main__":
     print(s.constructDistancedSequence(4))
     print(s.constructDistancedSequence(5))
     print(s.constructDistancedSequence(6))
+    print(s.constructDistancedSequence(12))
