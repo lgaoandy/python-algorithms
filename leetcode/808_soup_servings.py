@@ -52,8 +52,6 @@ class Solution:
             # check if dp[k][k] has approached 1, if so, return 1
             if dp[k][k] > 1 - 1e-5:
                 return 1
-
-        # return actual probability
         return dp[m][m]
 
 
