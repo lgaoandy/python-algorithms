@@ -13,17 +13,11 @@ def is_video(filename):
     return ext in video_ext
 
 def process_filename(filename):
-    # Check if filename starts with a number
-    if re.match(r'^\d', filename):
-        return f"IMG_{filename}"
-    
     # Find where the first number occurs in the filename
-    match = re.search(r'\d', filename)
+    match = re.search(r'_(\d+_\d+)', filename)
     if match:
-        first_num_pos = match.start()
-        prefix = filename[:first_num_pos]
-        rest = filename[first_num_pos:]
-        return f"IMG_{rest}-{prefix.strip('_')}"
+        basename = match.group(1)
+        return f"IMG_{basename}"
     return filename
 
 def rename_media_files(folder_path):
@@ -38,9 +32,8 @@ def rename_media_files(folder_path):
         name, ext = os.path.splitext(filename)
         new_name = process_filename(name)
         
-        # Add -VID suffix for videos
         if is_video(filename):
-            new_name += "-VID"
+            new_name += "_VID"
         
         new_filename = f"{new_name}{ext}"
         new_path = os.path.join(folder_path, new_filename)
@@ -53,10 +46,15 @@ def rename_media_files(folder_path):
             counter += 1
         
         os.rename(file_path, new_path)
-        print(f"Renamed: {filename} → {new_filename}")
+        if filename == new_filename:
+            print(f"Ignored: {filename}")
+        else:
+            print(f"Renamed: {filename} → {new_filename}")
 
 if __name__ == "__main__":
-    folder_path = input("Enter folder path: ").strip('"')  # Change this to your target folder
+    # Ask for folder
+    folder_path = input("Enter folder path: ").strip('"')
+    
     if os.path.exists(folder_path):
         rename_media_files(folder_path)
         print("Renaming complete!")

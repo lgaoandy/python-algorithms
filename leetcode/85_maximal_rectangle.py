@@ -13,9 +13,11 @@ class Solution:
         
         for i in range(1, m):
             for j in range(n):
-                if sums[i-1][j] > 0 or 
-                sums[i][j] = int(matrix[i][j]) + sums[i-1][j]
-                
+                if matrix[i][j] == "1":
+                    sums[i][j] = int(matrix[i][j]) + sums[i-1][j]
+               
+        for i in range(m): 
+            print(sums[i])
             
         
         
