@@ -34,24 +34,13 @@ class Solution:
             prev = current
         return head
 
-
+    
     '''
-        potential questions to ask interviewer
-        - what happens when a linked list of length 1 is inputted?
-
-        constriants:
-        - 1 <= nodes <= 10^5
-
-        pseudo-code
-        - iterate through linked list until the end to get length n
-        - find the index of the middle node [n/2]
-        - iterate through linked list, change the parent node pointer to the child
-
-        analysis
-        - time complexity: O(n)
-        - space complexity: O(1)
+        Previous solution: 
+        - iterate linked list from start to end, while tracking the parent of the middle node
+        - then remove middle node
     '''
-    def delete_middle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def delete_middle_1(self, head: Optional[ListNode]) -> Optional[ListNode]:
         # handles the single node case
         if head.next == None: 
             return None
@@ -74,8 +63,48 @@ class Solution:
         else:
             parent.next = None
         return head
-    
 
+
+
+    '''
+        Constriants:
+        - 1 <= nodes <= 10^5
+    
+        Thoughts
+        - for n = 1, 2, 3, 4, 5, 6, middle node = 0, 1, 1, 2, 2, 3
+            creating a pattern of middle_node = n // 2
+
+        Pseudo-code
+        - iterate linked list from start to end to get length n
+        - using logic above to find the m, the middle node
+        - iterate second pass, on the m-1 node, replace the next node as the next node after the middle node, consequently removing the node and return
+
+        Analysis
+        - time complexity: O(n)
+        - space complexity: O(1)
+    '''
+    def delete_middle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # If a single node, return nothing
+        if head.next == None:
+            return None
+        
+        # Define length 
+        n = 1 
+        node = head
+        
+        while node.next:
+            n += 1
+            node = node.next
+        
+        # Position of the middle node 
+        node = head
+        for i in range(n // 2 - 1): 
+            node = node.next
+            
+        node.next = node.next.next
+        return head
+        
+            
 if __name__ == "__main__":
     s = Solution()
     node1 = s.create_linked_list([1,3,4,7,1,2,6])
