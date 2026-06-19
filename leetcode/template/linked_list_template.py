@@ -19,19 +19,14 @@ class ListNodeBuilder:
     # creates linked list then return its head
     def create(self, nums: list[int]) -> Optional[ListNode]:
         n = len(nums)
-
         if n <= 0:
             return None
         
-        head = None
-        prev = ListNode(nums[0])
+        head = curr = ListNode(nums[0])
         
         for i in range(1, n):
-            current = ListNode(nums[i])
-            prev.next = current
-            if i == 1:
-                head = prev
-            prev = current
+            curr.next = ListNode(nums[i])
+            curr = curr.next
         return head
 
 
