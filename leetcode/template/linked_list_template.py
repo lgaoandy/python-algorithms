@@ -15,9 +15,9 @@ class ListNode:
         return "\n" + " > ".join(values)
 
 
-class Solution:
+class ListNodeBuilder:
     # creates linked list then return its head
-    def create_linked_list(self, nums: list[int]) -> Optional[ListNode]:
+    def create(self, nums: list[int]) -> Optional[ListNode]:
         n = len(nums)
 
         if n <= 0:
@@ -53,8 +53,8 @@ class Solution:
     
 
 if __name__ == "__main__":
-    s = Solution()
-    node1 = s.create_linked_list([])
+    s = ListNodeBuilder()
+    node1 = s.create([])
     print(node1)
     print(s.func(node1))
 
