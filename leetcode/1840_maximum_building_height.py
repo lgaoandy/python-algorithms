@@ -1,4 +1,5 @@
 from typing import List
+import heapq
 
 class Solution:
     ''''
@@ -16,12 +17,25 @@ class Solution:
         if not restrictions:
             return n - 1
         
-        rheight = {}
+        heightr = {}
         for a, b in restrictions:
-            rheight[a] = b
+            heightr[a-1] = b
         
-        pass
-
+        height = [0] * n
+        for i in range(1, n-1):
+            print(i)
+            if i in heightr:
+                print(f"{i} in heightr")
+                j = i - 1
+                while height[j] > height[j+1]:
+                    height[j] = height[j+1] - 1
+                    j -= 1
+                else:
+                    height[i] = height[i-1]
+            else:
+                height[i] = height[i-1] + 1
+        return height
+        
 
 if __name__ == "__main__":
     s = Solution()
