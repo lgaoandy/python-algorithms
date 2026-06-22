@@ -1,8 +1,11 @@
 from typing import List
+from template.sorters import Sorters
+import heapq
 
 class Solution:
-    def maxIceCream(self, costs: List[int], coins: int) -> int:
-        self.mergeSort(costs)
+    # Using merge sort
+    def maxIceCream_mergeSort(self, costs: List[int], coins: int) -> int:
+        Sorters.mergeSort(costs)
         print(costs)
         
         ice_cream = 0
@@ -13,39 +16,18 @@ class Solution:
             else:
                 break
         return ice_cream
-    
-    
-    def mergeSort(self, arr: List[int]) -> None:
-        n = len(arr)
-        
-        if n > 1:
-            left_arr = arr[:n // 2]
-            right_arr = arr[n // 2:]
-            
-            self.mergeSort(left_arr)
-            self.mergeSort(right_arr)
-            
-            i = j = k = 0
-            while i < len(left_arr) and j < len(right_arr):
-                if left_arr[i] < right_arr[j]:
-                    arr[k] = left_arr[i]
-                    i += 1
-                else:
-                    arr[k] = right_arr[j]
-                    j += 1
-                k += 1
-                
-            while i < len(left_arr):
-                arr[k] = left_arr[i]
-                i += 1
-                k += 1
-                
-            while j < len(right_arr):
-                arr[k] = right_arr[j]
-                j += 1
-                k += 1
-                    
 
+    # Using min heap
+    def maxIceCream(self, costs: List[int], coins: int) -> int:
+        heapq.heapify(costs)
+        
+        ice_creams = 0
+        while costs and costs[0] <= coins:
+            coins -= heapq.heappop(costs)
+            ice_creams += 1
+        return ice_creams
+        
+    
 
 if __name__ == "__main__":
     s = Solution()
