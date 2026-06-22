@@ -17,23 +17,23 @@ class Solution:
         if not restrictions:
             return n - 1
         
-        heightr = {}
+        heightr = { 0:0 }
         for a, b in restrictions:
             heightr[a-1] = b
         
         height = [0] * n
-        for i in range(1, n-1):
-            print(i)
-            if i in heightr:
-                print(f"{i} in heightr")
-                j = i - 1
-                while height[j] > height[j+1]:
-                    height[j] = height[j+1] - 1
-                    j -= 1
-                else:
-                    height[i] = height[i-1]
+        
+        # check height from left to right
+        for i in range(1, n):
+            if i in heightr and heightr[i] <= height[i-1]:
+                height[i] = heightr[i]
             else:
                 height[i] = height[i-1] + 1
+                
+        # check height from right to left
+        for i in range(n-2, -1, -1):
+            if height[i+1] < height[i] < height[i+1]
+
         return height
         
 
