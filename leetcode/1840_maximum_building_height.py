@@ -32,7 +32,8 @@ class Solution:
                 
         # check height from right to left
         for i in range(n-2, -1, -1):
-            if height[i+1] < height[i] < height[i+1]
+            if height[i+1] < height[i] < height[i+1]:
+                pass
 
         return height
         
