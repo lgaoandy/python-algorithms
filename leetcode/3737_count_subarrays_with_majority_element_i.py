@@ -1,6 +1,11 @@
 from typing import List
 
 '''
+    Constraints:
+    - 1 <= nums.length <= 1000
+    - 1 <= nums[i] <= 10^9
+    - 1 <= target <= 10^9
+
     Thoughts:
     - *Majority element* - the element that appears strictly more than half of the times in that subarray
     - Based on constraints - 0 < n < 1000, we can perform an numeration on every possible subarray
@@ -13,6 +18,9 @@ from typing import List
     - *Numeration* strategy - every j loop, i changes, set a new counter starting zero
         - As we iterate j, we check whether the current index is the target, if so, increase counter by one, else reduce counter by one
         - As we are trying if the current subarray representing i and j, has the majority element, any subarray with a counter of 1 or more is a majority element
+    
+    Time complexity: O(n^2)
+    Space complexity: O(n)
 '''
 
 class Solution:
