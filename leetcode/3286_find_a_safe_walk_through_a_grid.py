@@ -59,7 +59,7 @@ if __name__ == "__main__":
         [0,1,0,1,0],
         [0,0,0,1,0]
     ]
-    print(s.findSafeWalk(grid1, 1))
+    print(s.findSafeWalk(grid1, 1)) # ans: true
     
     grid2 = [
         [0,1,1,0,0,0],
@@ -67,11 +67,11 @@ if __name__ == "__main__":
         [0,1,1,1,0,1],
         [0,0,1,0,1,0]
     ]
-    print(s.findSafeWalk(grid2, 3))
+    print(s.findSafeWalk(grid2, 3)) # ans: false
     
     grid3 = [
         [1,1,1],
         [1,0,1],
         [1,1,1]
     ]
-    print(s.findSafeWalk(grid3, 5))
+    print(s.findSafeWalk(grid3, 5)) # ans: true
