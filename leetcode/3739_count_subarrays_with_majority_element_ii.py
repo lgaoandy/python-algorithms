@@ -35,7 +35,7 @@ class Solution:
     def countMajoritySubarrays(self, nums: List[int], target: int) -> int:
         n = len(nums)
         
-        dp = [[0] for _ in range(n) ] * n
+        dp = [[0] for _ in range(n)] * n
         count = 0
         for i in range(n):
             count +=  1 if nums[i] == target else -1
