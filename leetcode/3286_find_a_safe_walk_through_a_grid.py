@@ -1,30 +1,25 @@
 from collections import deque
 from typing import List
 
+'''
+    Constriants:
+    - m == grid.length, n == grid[i].length
+    - 1 <= m, n <= 50
+    - 2 <= m * n                    (m and n cannot be zero)
+    - 1 <= health <= m + n          (don't need to check obvious answers)
+    - grid[i][j] is either 0 or 1   (cannot loss 1 heath per grid)
+'''
 class Solution:
-    '''
-        Constriants:
-        - m == grid.length, n == grid[i].length
-        - 1 <= m, n <= 50
-        - 2 <= m * n                    (m and n cannot be zero)
-        - 1 <= health <= m + n          (don't need to check obvious answers)
-        - grid[i][j] is either 0 or 1   (cannot loss 1 heath per grid)
-
-        Thoughts
+    ''' Thoughts
         - Greedy approach: try to find the exit in the least resistance path possible
         - Track of grid spots that have been visited to avoid repeated
         - Track of grid spots priority
-
-        Analysis
-        - time complexity: 
-        - space complexity: 
     '''
     def findSafeWalk(self, grid: List[List[int]], health: int) -> bool:
         m = len(grid)
         n = len(grid[0])
         visited = set()
         queue = deque([(0,0,health)]) # starting point
-        low_priority = set()
         
         while queue:
             i, j, hp = queue.popleft()
@@ -41,12 +36,9 @@ class Solution:
                 jj = j + dj
                 if 0 <= ii < m and 0 <= jj < n and (ii, jj) not in visited:
                     if grid[ii][jj] == 1:
-                        low_priority.add((ii,jj,hp))
-                    else:
                         queue.append((ii,jj,hp))
-            
-            if not queue:
-                queue.extend(low_priority)
+                    else:
+                        queue.appendleft((ii,jj,hp))
 
 
 if __name__ == "__main__":
