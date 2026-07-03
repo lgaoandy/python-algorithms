@@ -1,3 +1,4 @@
+from collections import deque
 from typing import List
 
 class Solution:
@@ -10,45 +11,42 @@ class Solution:
         - grid[i][j] is either 0 or 1   (cannot loss 1 heath per grid)
 
         Thoughts
-        - 2D dp solution: c
-            - Create a m x n grid named safest_path
-            - Start with the top row, iterate columns then rows
-        - During iteration:
-            - Check the immediate top and left grid if applicable and take the highest number as max_health
-            - Check if current cell is a hazard (1) OR safe (0). If a hazard, reduce the health count by 1
-            - Print the max_health into our grid
-        - The cells the safest_path represents the most health you can have reaching that particular grid
-        - Complete the iteration and check if the lower-right corner is >= 1, if so, true, else false
+        - Greedy approach: try to find the exit in the least resistance path possible
+        - Track of grid spots that have been visited to avoid repeated
+        - Track of grid spots priority
 
         Analysis
-        - time complexity: O(n)
-        - space complexity: O(1)
+        - time complexity: 
+        - space complexity: 
     '''
     def findSafeWalk(self, grid: List[List[int]], health: int) -> bool:
         m = len(grid)
         n = len(grid[0])
-        max_hp = [[health] * n] * m
+        visited = set()
+        queue = deque([(0,0,health)]) # starting point
+        low_priority = set()
         
-        # Iterate first row
-        for j in range(1, n):
-            max_hp[0][j] = max_hp[0][j-1] # health carries over from the left
-            if grid[0][j] == 1: 
-                max_hp[0][j] -= 1
-        
-        # Iterate first column
-        for i in range(1, m):
-            max_hp[i][0] = max_hp[i-1][0] # health carries over from the top
-            if grid[i][0] == 1:
-                max_hp[i][0] -= 1
-        
-        # Iterate rest of grid
-        for i in range(1, m):
-            for j in range(1, n):
-                max_hp[i][j] = max(max_hp[i-1][j], max_hp[i][j-1])
-                if grid[i][j] == 1:
-                    max_hp[i][j] -= 1
-        
-        return max_hp[m-1][n-1] >= 1
+        while queue:
+            i, j, hp = queue.popleft()
+            visited.add((i,j))
+            
+            if grid[i][j] == 1:
+                hp -= 1
+            
+            if (i, j) == (m-1, n-1):
+                return hp > 0
+            
+            for di, dj in [(1,0), (0,1), (-1,0), (0,-1)]:
+                ii = i + di
+                jj = j + dj
+                if 0 <= ii < m and 0 <= jj < n and (ii, jj) not in visited:
+                    if grid[ii][jj] == 1:
+                        low_priority.add((ii,jj,hp))
+                    else:
+                        queue.append((ii,jj,hp))
+            
+            if not queue:
+                queue.extend(low_priority)
 
 
 if __name__ == "__main__":
@@ -75,3 +73,28 @@ if __name__ == "__main__":
         [1,1,1]
     ]
     print(s.findSafeWalk(grid3, 5)) # ans: true
+    
+    grid4 = [
+        [0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,0,1,1,1,0,0],
+        [1,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,0,1,1,1,1,0,1,0,1,1,0,1,0,1,0,0,0,0,1,1,0,1,1,1],
+        [1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,0,0,1,1,0,1,0,1,1,1],
+        [1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,1,1,0,1,0,1,0,1,0,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,0],
+        [1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,1,1,0],
+        [1,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,1,1,1,1,1,0,1,1,1,1,1,0,1],
+        [1,1,1,0,1,1,0,1,1,0,1,1,0,1,0,0,0,1,1,0,1,1,1,1,0,1,1,1,1],
+        [0,0,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,0,1],
+        [1,1,0,1,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1],
+        [1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,0,1,1,1,1,0,1,0,1,1,0,1,0,1],
+        [1,1,0,1,1,1,1,0,1,0,0,1,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,0,1],
+        [1,0,0,1,1,1,1,0,0,1,0,1,0,0,1,1,1,1,0,1,0,1,1,1,0,0,1,1,1],
+        [1,1,0,1,0,0,1,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1],
+        [1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1],
+        [1,1,1,0,1,1,1,0,1,0,0,1,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1,0,1],
+        [1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1],
+        [1,1,0,1,0,1,1,0,1,1,1,0,1,1,1,1,1,0,1,0,1,0,1,1,1,1,0,1,0],
+        [0,1,0,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,0,1,0,0,1,0,1,1,1]
+    ]
+    print(s.findSafeWalk(grid4, 33)) # ans: true
